@@ -3,4 +3,5 @@
     <string name="Edit_Button">New Subscription</string>
     <string name="Save_Button">Save</string>
     <string name="Delete_Button">Delete</string>
+    <string name="Cancel_Button">Cancel</string>
 </resources>
