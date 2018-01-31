@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">mlnguyen-SubBook</string>
+    <string name="Edit_Button">New Subscription</string>
+    <string name="Save_Button">Save</string>
+    <string name="Delete_Button">Delete</string>
+</resources>
