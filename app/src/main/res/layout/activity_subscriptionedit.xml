@@ -14,6 +14,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginRight="52dp"
         android:background="?attr/actionModeSplitBackground"
+        android:onClick="saveSub"
         android:text="@string/Save_Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
@@ -42,7 +43,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
         android:text="Subscription Name:"
-        app:layout_constraintEnd_toStartOf="@+id/editText"
+        app:layout_constraintEnd_toStartOf="@+id/editName"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +58,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="80dp"
         android:text="Charge:"
-        app:layout_constraintEnd_toStartOf="@+id/editText2"
+        app:layout_constraintEnd_toStartOf="@+id/editCharge"
         app:layout_constraintHorizontal_bias="0.195"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +72,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="76dp"
         android:text="Subscription Date:"
-        app:layout_constraintEnd_toStartOf="@+id/editText3"
+        app:layout_constraintEnd_toStartOf="@+id/editDate"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -84,23 +85,22 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="76dp"
         android:text="Comments:"
-        app:layout_constraintEnd_toStartOf="@+id/editText4"
+        app:layout_constraintEnd_toStartOf="@+id/editComment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editName"
         android:layout_width="215dp"
         android:layout_height="wrap_content"
         android:layout_marginRight="16dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
         app:layout_constraintRight_toRightOf="parent" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editCharge"
         android:layout_width="214dp"
         android:layout_height="wrap_content"
         android:layout_marginRight="16dp"
@@ -112,7 +112,7 @@
         app:layout_constraintRight_toRightOf="parent" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/editDate"
         android:layout_width="213dp"
         android:layout_height="wrap_content"
         android:layout_marginRight="16dp"
@@ -124,12 +124,12 @@
         app:layout_constraintRight_toRightOf="parent" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/editComment"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_marginRight="16dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:hint="optional"
         android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
         app:layout_constraintRight_toRightOf="parent" />
