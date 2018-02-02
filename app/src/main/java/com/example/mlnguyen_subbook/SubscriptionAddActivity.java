@@ -36,7 +36,6 @@ public class SubscriptionAddActivity extends AppCompatActivity {
     {
         String nameTextString = nameText.getText().toString();
         String chargeTextString = chargeText.getText().toString();
-        Float chargeTextFloat = Float.parseFloat(chargeTextString);
         String dateTextString = dateText.getText().toString();
         DateFormat df = new SimpleDateFormat("mm-dd-yyyy");
         Date dateTextDate = new Date();

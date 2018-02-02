@@ -42,7 +42,14 @@ public class MainActivity extends AppCompatActivity  {
                 String name = subscriptionList.get(i).getName();
                 String charge = Float.toString(subscriptionList.get(i).getCharge());
                 String comment = subscriptionList.get(i).getComment();
-
+                totalCharge -= subscriptionList.get(i).getCharge();
+                chargeView.setText(String.format("%.2f",totalCharge));
+                Intent intent = new Intent(view.getContext(),SubscriptionEditActivity.class);
+                intent.putExtra("name",name);
+                intent.putExtra("charge",charge);
+                intent.putExtra("comment",comment);
+                intent.putExtra("index",i);
+                startActivityForResult(intent, 1015);
 
             }
         });
@@ -84,6 +91,29 @@ public class MainActivity extends AppCompatActivity  {
 
                 }
                 break;
+            }
+            case (1015) : {
+                if (resultCode == Activity.RESULT_OK){
+                    String name = data.getStringExtra("name");
+                    String charge = data.getStringExtra("charge");
+                    Float chargeFloat = Float.parseFloat(charge);
+                    String comment = data.getStringExtra("comment");
+                    Integer index = data.getIntExtra("index",-1);
+                    Date date = new Date();
+                    Subscription subscription = new Subscription(name,date,chargeFloat,comment);
+                    subscriptionList.set(index,subscription);
+                    totalCharge += chargeFloat;
+                    chargeView.setText(String.format("$%.2f",totalCharge));
+                    adapter.notifyDataSetChanged();
+
+
+                }
+                else if (resultCode == 2){
+                    Integer index = data.getIntExtra("index",-1);
+                    Log.i("testing",index.toString());
+                    subscriptionList.remove(index);
+                    adapter.notifyDataSetChanged();
+                }
             }
         }
     }
