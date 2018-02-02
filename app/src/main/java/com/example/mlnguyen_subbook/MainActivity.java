@@ -42,8 +42,6 @@ public class MainActivity extends AppCompatActivity  {
                 String name = subscriptionList.get(i).getName();
                 String charge = Float.toString(subscriptionList.get(i).getCharge());
                 String comment = subscriptionList.get(i).getComment();
-                totalCharge -= subscriptionList.get(i).getCharge();
-                chargeView.setText(String.format("%.2f",totalCharge));
                 Intent intent = new Intent(view.getContext(),SubscriptionEditActivity.class);
                 intent.putExtra("name",name);
                 intent.putExtra("charge",charge);
@@ -101,6 +99,7 @@ public class MainActivity extends AppCompatActivity  {
                     Integer index = data.getIntExtra("index",-1);
                     Date date = new Date();
                     Subscription subscription = new Subscription(name,date,chargeFloat,comment);
+                    totalCharge -= subscriptionList.get(index).getCharge();
                     subscriptionList.set(index,subscription);
                     totalCharge += chargeFloat;
                     chargeView.setText(String.format("$%.2f",totalCharge));
@@ -109,10 +108,12 @@ public class MainActivity extends AppCompatActivity  {
 
                 }
                 else if (resultCode == 2){
-                    Integer index = data.getIntExtra("index",-1);
-                    Log.i("testing",index.toString());
+                    int index = data.getIntExtra("index",-1);
+                    totalCharge -= subscriptionList.get(index).getCharge();
+                    chargeView.setText(String.format("$%.2f",totalCharge));
                     subscriptionList.remove(index);
                     adapter.notifyDataSetChanged();
+
                 }
             }
         }
