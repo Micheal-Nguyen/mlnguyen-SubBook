@@ -20,6 +20,7 @@ public class Subscription implements Serializable {
     private float charge;
     private String comment;
 
+
     Subscription(String name, Float charge) {
         this.name = name;
         date = new Date();
