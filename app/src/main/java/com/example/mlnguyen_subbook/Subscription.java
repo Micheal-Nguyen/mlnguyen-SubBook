@@ -1,12 +1,13 @@
 package com.example.mlnguyen_subbook;
 
-import android.content.Intent;
+
 import android.util.Log;
-import android.widget.EditText;
+
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.jar.Attributes;
+
 
 /**
  * Created by kio22 on 2018-01-31.
@@ -95,8 +96,9 @@ public class Subscription implements Serializable {
     }
 
     public String toString(){
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd");
         Log.i("test",date.toString() + "|" + name + "|" + Float.toString(charge) + "|" + comment);
-        return date.toString() + "|" + name + "|" + Float.toString(charge) + "|" + comment;
+        return String.format("%-19s",df.format(date)) + ""  + String.format("%-36s",name) + String.format("$%.2f",charge) + "\nComments: " + comment;
     }
 
 }
