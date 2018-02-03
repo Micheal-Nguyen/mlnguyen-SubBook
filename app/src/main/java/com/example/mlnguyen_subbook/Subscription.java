@@ -18,16 +18,11 @@ public class Subscription implements Serializable {
 
     private String name;
     private Date date;
-    private float charge;
+    private Float charge;
     private String comment;
 
 
-    Subscription(String name, Float charge) {
-        this.name = name;
-        date = new Date();
-        this.charge = charge;
-        comment = new String("");
-    }
+
 
     Subscription(String name, Date date, float charge, String comment) {
         Log.i("test", "hlelo");
@@ -38,33 +33,16 @@ public class Subscription implements Serializable {
 
     }
 
-    Subscription(String name, Date date, Float charge) {
-        this.name = name;
-        this.date = date;
-        this.charge = charge;
-        comment = new String("");
 
-    }
-
-    Subscription(String name, Float charge, String comment) {
-        this.name = name;
-        date = new Date();
-        this.charge = charge;
-        this.comment = comment;
-    }
 
     public String getName()
     {
         return name;
     }
 
-    public void setName(String name) throws SubscriptionTooLongException{
-        if(name.length() <= 20){
-            this.name = name;
-        }
-        else{
-            throw new SubscriptionTooLongException();
-        }
+    public void setName(String name){
+        this.name = name;
+
     }
     public Date getDate() {
         return date;
@@ -86,13 +64,8 @@ public class Subscription implements Serializable {
         return comment;
     }
 
-    public void setComment() throws SubscriptionTooLongException{
-        if(comment.length()<=30){
-            this.comment = comment;
-        }
-        else{
-            throw new SubscriptionTooLongException();
-        }
+    public void setComment() {
+        this.comment = comment;
     }
 
     public String toString(){
