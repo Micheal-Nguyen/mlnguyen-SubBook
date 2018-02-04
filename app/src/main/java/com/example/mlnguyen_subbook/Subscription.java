@@ -1,10 +1,8 @@
 package com.example.mlnguyen_subbook;
 
 
-import android.util.Log;
 
 
-import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -13,7 +11,7 @@ import java.util.Date;
  * Created by kio22 on 2018-01-31.
  */
 
-public class Subscription implements Serializable {
+public class Subscription {
 
 
     private String name;
@@ -21,11 +19,8 @@ public class Subscription implements Serializable {
     private Float charge;
     private String comment;
 
-
-
-
+    //Sets the private variables of Subscription
     Subscription(String name, Date date, float charge, String comment) {
-        Log.i("test", "hlelo");
         this.name = name;
         this.date = date;
         this.charge = charge;
@@ -68,10 +63,10 @@ public class Subscription implements Serializable {
         this.comment = comment;
     }
 
+    //Converts the attributes of subscription to a string when needed.
     public String toString(){
         SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd");
-        Log.i("test",date.toString() + "|" + name + "|" + Float.toString(charge) + "|" + comment);
-        return String.format("%-19s",df.format(date)) + ""  + String.format("%-36s",name) + String.format("$%.2f",charge) + "\nComments: " + comment;
+        return String.format("%-17s",df.format(date))  + String.format("%-33s",name) + String.format("$%.2f",charge) + "\nComments: " + comment;
     }
 
 }

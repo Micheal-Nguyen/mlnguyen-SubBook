@@ -54,8 +54,6 @@ public class MainActivity extends AppCompatActivity  {
         SubList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Log.i("ListView",Integer.toString(i));
-                Log.i("testing",subscriptionList.get(i).toString());
                 String name = subscriptionList.get(i).getName();
                 String charge = Float.toString(subscriptionList.get(i).getCharge());
                 String comment = subscriptionList.get(i).getComment();
@@ -131,10 +129,8 @@ public class MainActivity extends AppCompatActivity  {
 
                     }
                     Subscription subscription = new Subscription(name,date,chargeFloat,comment);
-                    //Log.i("test",subscription.toString());
                     subscriptionList.add(subscription);
                     totalCharge += chargeFloat;
-                    //Log.i("charges", Float.toString(totalCharge));
                     chargeView.setText(String.format("$%.2f",totalCharge));
                     adapter.notifyDataSetChanged();
                     saveInFile();

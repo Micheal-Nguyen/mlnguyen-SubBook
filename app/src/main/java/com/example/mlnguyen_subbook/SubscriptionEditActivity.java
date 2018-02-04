@@ -3,14 +3,10 @@ package com.example.mlnguyen_subbook;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-
-
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 
@@ -34,7 +30,7 @@ public class SubscriptionEditActivity extends AppCompatActivity {
         String comment = intent.getStringExtra("comment");
         String date = intent.getStringExtra("date");
 
-
+        //Retrieves the (EditText) and sets them to the subscription that was clicked in the listView on main activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subscriptionedit);
         nameView = (EditText) findViewById(R.id.editName);
@@ -49,15 +45,17 @@ public class SubscriptionEditActivity extends AppCompatActivity {
 
     }
 
+    //Save button
     public void saveSubE(View view)
     {
         String nameTextString = nameView.getText().toString();
         String chargeTextString = chargeView.getText().toString();
         String dateTextString = dateView.getText().toString();
         String commentTextString = commentView.getText().toString();
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         Date dateTextDate;
 
+        //Validation, checks and puts out an error if anything wrong according to specs and such.
         if(nameTextString.length()==0){
             nameView.requestFocus();
             nameView.setError("Subscription Name is required");
@@ -77,17 +75,19 @@ public class SubscriptionEditActivity extends AppCompatActivity {
         else{
             int choice = 1;
             if(dateTextString.length()==0) {
-                Log.i("test",dateTextString);
                 dateTextDate = new Date();
-                dateTextString = dateTextDate.toString();
+                dateTextString = df.format(dateTextDate);
             }
             else{
+                //Checks if the date exists and is before current date
                 try {
-                    Date d = df.parse(dateTextString);
-                    Calendar cal = Calendar.getInstance();
-                    cal.setLenient(false);
-                    cal.setTime(d);
-                    cal.getTime();
+                    df.setLenient(false);
+                    dateTextDate = df.parse(dateTextString);
+                    if(dateTextDate.after(new Date())){
+                        dateView.requestFocus();
+                        dateView.setError("Subscription date is in the future");
+                        choice = 2;
+                    }
 
                 } catch (Exception e){
                     dateView.requestFocus();
@@ -95,6 +95,8 @@ public class SubscriptionEditActivity extends AppCompatActivity {
                     choice = 2;
                 }
             }
+
+            //If date doesn't exist or in future, case 2 else case 1.
             switch(choice) {
                 case 1:
                     Intent intent = getIntent();
@@ -106,7 +108,6 @@ public class SubscriptionEditActivity extends AppCompatActivity {
                     returnIntent.putExtra("charge", chargeTextString);
                     returnIntent.putExtra("comment", commentTextString);
                     returnIntent.putExtra("index",index);
-                    Log.i("date",dateTextString);
                     returnIntent.putExtra("date", dateTextString);
                     setResult(RESULT_OK, returnIntent);
                     finish();
@@ -117,6 +118,7 @@ public class SubscriptionEditActivity extends AppCompatActivity {
 
     }
 
+    //delete button, deletes subscription
     public void deleteSub (View view)
     {
         Intent intent = getIntent();
