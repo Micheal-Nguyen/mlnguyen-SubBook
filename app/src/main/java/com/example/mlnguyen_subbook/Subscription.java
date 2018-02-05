@@ -47,11 +47,11 @@ public class Subscription {
         this.date = date;
     }
 
-    public float getCharge() {
+    public Float getCharge() {
         return charge;
     }
 
-    public void setCharge(float charge){
+    public void setCharge(Float charge){
         this.charge = charge;
     }
 
@@ -59,7 +59,7 @@ public class Subscription {
         return comment;
     }
 
-    public void setComment() {
+    public void setComment(String comment) {
         this.comment = comment;
     }
 

@@ -60,7 +60,7 @@ public class SubscriptionEditActivity extends AppCompatActivity {
             nameView.requestFocus();
             nameView.setError("Subscription Name is required");
         }
-        else if(nameTextString.length()>=20){
+        else if(nameTextString.length()>20){
             nameView.requestFocus();
             nameView.setError("Subscription Name over 20 characters");
         }
