@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/mlnguyen-SubBook.iml" filepath="$PROJECT_DIR$/mlnguyen-SubBook.iml" />
-      <module fileurl="file://C:\Users\kio22\AndroidStudioProjects\mlnguyen-SubBook\mlnguyen-SubBook.iml" filepath="C:\Users\kio22\AndroidStudioProjects\mlnguyen-SubBook\mlnguyen-SubBook.iml" />
     </modules>
   </component>
 </project>
