@@ -84,8 +84,8 @@ public class SubscriptionAddActivity extends AppCompatActivity {
             switch(choice) {
                 case 1:
                     Intent returnIntent = new Intent();
-                    // taken from https://stackoverflow.com/questions/17996221/how-to-receive-multiple-values-using-an-intent
-                    // 2018-1-2
+                    // https://stackoverflow.com/questions/17996221/how-to-receive-multiple-values-using-an-intent
+                    // 2018-02-01
                     returnIntent.putExtra("name", nameTextString);
                     returnIntent.putExtra("charge", chargeTextString);
                     returnIntent.putExtra("comment", commentTextString);

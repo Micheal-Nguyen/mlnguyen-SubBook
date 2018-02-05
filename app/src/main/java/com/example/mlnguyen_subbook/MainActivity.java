@@ -108,6 +108,8 @@ public class MainActivity extends AppCompatActivity  {
     }
 
 
+    //https://stackoverflow.com/questions/920306/sending-data-back-to-the-main-activity-in-android
+    //2018-02-01
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd");
